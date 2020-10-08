@@ -24,7 +24,7 @@ export const Google = {
             version: 'v1', auth
         }).people.get({
             resourceName: 'people/me',
-            personFields: 'emailAddressess, names, photos'
+            personFields: 'emailAddresses,names,photos'
         });
 
         return { user: data };

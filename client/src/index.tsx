@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import {
+    AppHeader,
     Home,
     Host,
     Listing,
@@ -10,6 +11,9 @@ import {
     NotFound,
     User
 } from './sections';
+
+import { Affix, Layout } from 'antd';
+
 import { Viewer } from './lib/types';
 import ApolloClient from 'apollo-boost';
 import { ApolloProvider } from 'react-apollo';
@@ -30,22 +34,27 @@ const initialViewer: Viewer = {
 
 const App = () => {
     const [viewer, setViewer] = useState<Viewer>(initialViewer);
-    console.log(viewer);
+
     return (
         <Router>
-            <Switch>
-                <Route exact path="/" component={Home}/>
-                <Route exact path="/host" component={Host}/>
-                <Route exact path="/listing:id" component={Listing}/>
-                <Route exact path="/listings:location?" component={Listings}/>
-                <Route
-                    exact
-                    path="/login"
-                    render={props => <Login {...props} setViewer={setViewer} />}
-                />
-                <Route exact path="/user:id" component={User}/>
-                <Route component={NotFound}/>
-            </Switch>
+            <Layout id="app">
+                <Affix offsetTop={0} className="app__affix-header">
+                    <AppHeader viewer={viewer} setViewer={setViewer}/>
+                </Affix>
+                <Switch>
+                    <Route exact path="/" component={Home}/>
+                    <Route exact path="/host" component={Host}/>
+                    <Route exact path="/listing:id" component={Listing}/>
+                    <Route exact path="/listings:location?" component={Listings}/>
+                    <Route
+                        exact
+                        path="/login"
+                        render={props => <Login {...props} setViewer={setViewer}/>}
+                    />
+                    <Route exact path="/user:id" component={User}/>
+                    <Route component={NotFound}/>
+                </Switch>
+            </Layout>
         </Router>
     )
 }
