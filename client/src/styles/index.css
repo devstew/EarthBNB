@@ -595,6 +595,9 @@
 .user-profile__avatar {
   text-align: center;
 }
+.user-profile__details {
+  overflow: hidden;
+}
 .user-profile__details h4.ant-typography {
   color: #1d226c;
 }
@@ -604,6 +607,7 @@
 .user-profile__details-cta {
   margin-bottom: 20px;
 }
+
 .user {
   padding: 60px 120px;
 }

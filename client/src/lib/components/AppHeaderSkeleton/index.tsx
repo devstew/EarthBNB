@@ -1,11 +1,11 @@
 import * as React from 'react';
-import {Layout} from 'antd';
+import { Layout } from 'antd';
 
 import home from './assets/home.png';
 
-const {Header} = Layout;
+const { Header } = Layout;
 
-export const AppHeaderSkeleton= () => {
+export const AppHeaderSkeleton = () => {
     return (
         <Header className="app-header">
             <div className="app-header__logo-search-section">
