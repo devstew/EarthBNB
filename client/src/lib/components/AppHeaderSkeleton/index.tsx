@@ -10,7 +10,7 @@ export const AppHeaderSkeleton = () => {
         <Header className="app-header">
             <div className="app-header__logo-search-section">
                 <div className="app-header__logo">
-                    <img src={home} alt="App Logo"/>
+                    {/*<img src={home} alt="App Logo"/>*/}
                 </div>
             </div>
         </Header>
